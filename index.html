@@ -3,122 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo de Caça às Bruxas</title>
+    <title>Jogo de Adivinhação</title>
     <style>
         body {
-            background: linear-gradient(90deg, black, red, brown);
-            background-size: 200% 100%;
-            animation: gradient 5s linear infinite;
-            margin: 0;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .witch {
-            position: absolute;
-            width: 100px;
-            cursor: pointer;
-        }
-
-        .headline {
-            font-family: 'Cascadia Code', monospace;
-            color: black;
+            font-family: Arial, sans-serif;
             text-align: center;
-            font-size: 24px;
-            border: 2px solid white;
-            padding: 5px;
-            animation: pulse 1s infinite;
         }
 
         .emoji {
-            font-size: 40px;
+            font-size: 48px;
             cursor: pointer;
         }
 
-        .magician {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            font-size: 100px;
-            animation: magic 10s linear;
+        .choice-box {
+            font-size: 24px;
         }
 
         .message {
-            text-align: center;
-            font-family: 'Hack', monospace;
-            color: black;
-            font-size: 18px;
-        }
-
-        .credits {
-            text-align: center;
-            font-family: 'Hack', monospace;
-            color: green;
             font-size: 24px;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 200% 0;
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                border-color: white;
-            }
-            50% {
-                border-color: red;
-            }
-            100% {
-                border-color: white;
-            }
-        }
-
-        @keyframes magic {
-            0%, 100% {
-                transform: rotate(0deg);
-            }
-            25%, 75% {
-                transform: rotate(45deg);
-            }
-            50% {
-                transform: rotate(90deg);
-            }
-        }
-
-        @keyframes blink {
-            0% {
-                color: green;
-            }
-            50% {
-                color: transparent;
-            }
-            100% {
-                color: green;
-            }
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div class="headline">E que comecem os jogos!</div>
-    <img class="witch" src="witch.png" alt="Bruxinha">
-    <div class="emoji" style="left: 20%;" onclick="showMessage('Chapéu', 'Há uma proteção sobre toda razão que você tem cocriado.')">🎩</div>
-    <div class="emoji" style="left: 40%;" onclick="showMessage('Lagarta', 'Seu processo de desenvolvimento está sendo maturado e você está prestes a se transformar em algo muito maior e diferente do que imagina.')">🐛</div>
-    <div class="emoji" style="left: 60%;" onclick="showMessage('Selva', 'Você precisa se aventurar para ter os novos desafios em sua vida! Pode parecer difícil, mas procure a “selva mais próxima de você”.')">🌴</div>
-    <div class="emoji" style="left: 80%;" onclick="showMessage('Raio', 'Tenha lapsos de raio em seu dia a dia, não necessariamente você precisa viver dependendo disso, mas se planeje para viver insights mais profundos com mais raios de potência.')">⚡</div>
-    <div class="magician">🎩🐇✨</div>
-    <div class="message">Você é dono da sua realidade e tem o poder de criar facilmente. Se entregue, estamos aqui por você!</div>
-    <div class="credits">lud codou isso aqui!</div>
+    <h1>Jogo de Adivinhação</h1>
+    <div class="choice-box">
+        Escolha um número (1, 2 ou 3):
+        <select id="choice">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+    <div class="emoji" id="emoji">🎱</div>
+    <div class="message" id="message"></div>
 
     <script>
-        function showMessage(emojiName, message) {
-            alert("Você clicou no emoji " + emojiName + ".\n\n" + message);
+        const emojis = ["1️⃣", "2️⃣", "3️⃣"];
+        const emojiElement = document.getElementById("emoji");
+        const messageElement = document.getElementById("message");
+
+        function playGame() {
+            const choice = parseInt(document.getElementById("choice").value);
+            const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+
+            emojiElement.innerText = randomEmoji;
+
+            if (choice === emojis.indexOf(randomEmoji) + 1) {
+                messageElement.innerText = "Parabéns! Você ganhou R$ 50!";
+            } else {
+                messageElement.innerText = "Que pena, tente novamente!";
+            }
         }
+
+        emojiElement.addEventListener("click", playGame);
+    
+
     </script>
 </body>
 </html>
