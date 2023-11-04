@@ -74,7 +74,9 @@
 
         function playGame() {
             const choice = parseInt(document.getElementById("choice").value);
-            const randomEmoji = emojisMath.floor(Math.random() * emojis.length);
+            const randomIndex = Math.floor(Math.random() * emojis.length);
+const randomEmoji = emojis[randomIndex];
+
 
             emojiElement.innerText = randomEmoji;
 
@@ -92,9 +94,5 @@
             window.location.href = "https://wa.me/5581986670193?text=Bora+lud%2C+quero+meus+50+conto";
         });
     </script>
-    tava com muita coisa para fazer de madrugada e codei esse game 
-    <div> 
-        <H4> Lud Nóbrega </H4>
-    </div>
 </body>
 </html>
