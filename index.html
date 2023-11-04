@@ -6,8 +6,9 @@
     <title>Caça às Bruxas</title>
     <style>
         body {
-            background: url('forest_background.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background: linear-gradient(90deg, green, white);
+            background-size: 200% 100%;
+            animation: gradient 5s linear infinite;
             margin: 0;
             overflow: hidden;
         }
@@ -16,6 +17,15 @@
             position: absolute;
             font-size: 60px;
             cursor: pointer;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
         }
     </style>
 </head>
