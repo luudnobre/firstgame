@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caça às Bruxas</title>
+    <style>
+        body {
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .witch {
+            position: absolute;
+            width: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img class="witch" src="witch.png" alt="Bruxa">
+    <script>
+        const witch = document.querySelector('.witch');
+
+        witch.addEventListener('click', () => {
+            alert('Você encontrou a bruxa! Parabéns!');
+            witch.style.display = 'none';
+        });
+
+        witch.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            witch.style.left = x + 'px';
+            witch.style.top = y + 'px';
+        });
+    </script>
+</body>
+</html>
+Neste exemplo, temos uma imagem de fundo de uma floresta e uma imagem de uma bruxa que o jogador precisa encontr
