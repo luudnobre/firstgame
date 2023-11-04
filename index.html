@@ -33,6 +33,15 @@
             border: none;
             border-radius: 5px;
         }
+        .button-blink {
+            animation: blinker 1s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -57,13 +66,14 @@
 
         function playGame() {
             const choice = parseInt(document.getElementById("choice").value);
-            const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+            const randomEmoji = emojisMath.floor(Math.random() * emojis.length);
 
             emojiElement.innerText = randomEmoji;
 
             if (choice === emojis.indexOf(randomEmoji) + 1) {
                 messageElement.innerText = "Parabéns! Você ganhou R$ 50!";
                 claimButton.style.display = "block";  // Mostrar o botão para reivindicar o prêmio
+                claimButton.classList.add("button-blink");  // Adicionar a classe de piscar
             } else {
                 messageElement.innerText = "Que pena, tente novamente!";
             }
