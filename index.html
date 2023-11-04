@@ -23,6 +23,16 @@
             font-size: 24px;
             font-weight: bold;
         }
+
+        .button {
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -37,11 +47,13 @@
     </div>
     <div class="emoji" id="emoji">🎱</div>
     <div class="message" id="message"></div>
+    <button class="button" id="claim-button" style="display: none">Reivindicar Prêmio</button>
 
     <script>
         const emojis = ["1️⃣", "2️⃣", "3️⃣"];
         const emojiElement = document.getElementById("emoji");
         const messageElement = document.getElementById("message");
+        const claimButton = document.getElementById("claim-button");
 
         function playGame() {
             const choice = parseInt(document.getElementById("choice").value);
@@ -51,22 +63,17 @@
 
             if (choice === emojis.indexOf(randomEmoji) + 1) {
                 messageElement.innerText = "Parabéns! Você ganhou R$ 50!";
+                claimButton.style.display = "block";  // Mostrar o botão para reivindicar o prêmio
             } else {
                 messageElement.innerText = "Que pena, tente novamente!";
-            }}
-
+            }
+        }
 
         emojiElement.addEventListener("click", playGame);
 
-
-
-
+        claimButton.addEventListener("click", () => {
+            window.location.href = "https://wa.me/5581986670193?text=Bora+lud%2C+quero+meus+50+conto";
+        });
     </script>
-
-ideias de cods em uma madrugada com muita coisa para fazer como se 
-pode ver
-<div>
-    <h4> → Lud Nóbrega ← </h4>
-</div>
 </body>
 </html>
