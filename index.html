@@ -8,6 +8,12 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
         }
 
         .emoji {
@@ -56,7 +62,9 @@
     </div>
     <div class="emoji" id="emoji">🎱</div>
     <div class="message" id="message"></div>
-    <button class="button" id="claim-button" style="display: none">Reivindicar Prêmio</button>
+    <div class="centered-button">
+        <button class="button button-blink" id="claim-button" style="display: none">Reivindicar Prêmio</button>
+    </div>
 
     <script>
         const emojis = ["1️⃣", "2️⃣", "3️⃣"];
@@ -73,7 +81,6 @@
             if (choice === emojis.indexOf(randomEmoji) + 1) {
                 messageElement.innerText = "Parabéns! Você ganhou R$ 50!";
                 claimButton.style.display = "block";  // Mostrar o botão para reivindicar o prêmio
-                claimButton.classList.add("button-blink");  // Adicionar a classe de piscar
             } else {
                 messageElement.innerText = "Que pena, tente novamente!";
             }
@@ -85,5 +92,9 @@
             window.location.href = "https://wa.me/5581986670193?text=Bora+lud%2C+quero+meus+50+conto";
         });
     </script>
+    tava com muita coisa para fazer de madrugada e codei esse game 
+    <div> 
+        <H4> Lud Nóbrega </H4>
+    </div>
 </body>
 </html>
